@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <!-- Reference to 2 stylesheets in the folder "static" -->
+    <link rel='stylesheet' type="text/css" href="/static/styles.css" />
+    <link rel='stylesheet' type="text/css" href="/static/w3.css" />
+</head>
+<body>
+    <!--Default navigation bar-->
+    <div class="w3-bar w3-black">
+        <a href="/" class="w3-bar-item w3-green w3-mobile w3-button w3-hover-green"><font color="white">Home</font></a>
+        <div class="w3-dropdown-hover">
+            <button class="w3-button w3-mobile w3-hover-green"><font color="white">Serverlijst</font></button>
+            <div id="dropdowncolor" class="w3-dropdown-content w3-bar-block w3-card-4 w3-animate-opacity w3-black">
+                <a href="/racku201" class="w3-bar-item w3-button w3-hover-green"><font color="white">RACK U 2.01</font></a>
+                <a href="/racku202" class="w3-bar-item w3-button w3-hover-green"><font color="white">RACK U 2.02</font></a>
+                <a href="/racku203" class="w3-bar-item w3-button w3-hover-green"><font color="white">RACK U 2.03</font></a>
+                <a href="/racku205" class="w3-bar-item w3-button w3-hover-green"><font color="white">RACK U 2.05</font></a>
+                <a href="/racku206" class="w3-bar-item w3-button w3-hover-green"><font color="white">RACK U 2.06</font></a>
+                <a href="/racku207" class="w3-bar-item w3-button w3-hover-green"><font color="white">RACK U 2.07</font></a>
+            </div>
+        </div>
+        <a href="/Contact" class="w3-bar-item w3-button w3-hover-green"><font color="white">Contact</font></a>
+    </div>
+    <h1>Serverlijst</h1>
+    <br />
+    <!--Added tabel UI from W3-static-->
+    <div class="w3-responsive w3-card-4">
+        <table border="1" cellpadding="5" cellspacing="5" class="w3-table-all w3-hoverable hide0 hide1">
+            <tr>
+                <!--Inputs table-->
+                <td><strong>serverrack</strong></td>
+                <td><strong>ID</strong></td>
+                <td><strong>Server</strong></td>
+                <td><strong>Reserveringsdatum</strong></td>
+                <td><strong>Einddatum</strong></td>
+                <td><strong>Leerlingnummer</strong></td>
+
+            </tr>
+            <!--Adds DATA from the Python script in the table > HTML list-->
+            {% for row in data %}
+            <tr>
+                {% for d in row %}
+                <td>{{ d }}</td>
+                {% endfor %}
+                <td><a href="edit_data/{{ row[0] }}/{{ row[1] }}/">Edit</a></td>
+                <td><a href="delete_data/{{ row[0] }}/{{ row[1] }}/">Delete</a></td>
+                <!--The "row[]" stands for the row in te table in the SQL table.-->
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</body>
+</html>

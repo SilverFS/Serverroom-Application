@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <!-- Reference to "title" -->
+    <title>{{ title }}</title>
+    <!-- Reference to 2 stylesheets in the folder "static" -->
+    <link rel='stylesheet' type="text/css" href="/static/styles.css" />
+    <link rel='stylesheet' type="text/css" href="/static/w3.css" />
+</head>
+<body>
+    <!--Default navigation bar-->
+    <div class="w3-bar w3-black">
+        <a href="/" class="w3-bar-item w3-green w3-mobile w3-button w3-hover-green"><font color="white">Home</font></a>
+        <div class="w3-dropdown-hover">
+            <button class="w3-button w3-mobile w3-hover-green"><font color="white">Serverlijst</font></button>
+            <div id="dropdowncolor" class="w3-dropdown-content w3-bar-block w3-card-4 w3-animate-opacity w3-black">
+                <a href="/racku201" class="w3-bar-item w3-button w3-hover-green"><font color="white">RACK U 2.01</font></a>
+                <a href="/racku202" class="w3-bar-item w3-button w3-hover-green"><font color="white">RACK U 2.02</font></a>
+                <a href="/racku203" class="w3-bar-item w3-button w3-hover-green"><font color="white">RACK U 2.03</font></a>
+                <a href="/racku205" class="w3-bar-item w3-button w3-hover-green"><font color="white">RACK U 2.05</font></a>
+                <a href="/racku206" class="w3-bar-item w3-button w3-hover-green"><font color="white">RACK U 2.06</font></a>
+                <a href="/racku207" class="w3-bar-item w3-button w3-hover-green"><font color="white">RACK U 2.07</font></a>
+            </div>
+        </div>
+        <a href="/Contact" class="w3-bar-item w3-button w3-hover-green"><font color="white">Contact</font></a>
+        <a href="/return" class="w3-bar-item w3-button w3-mobile w3-red">Exit</a>
+    </div>
+
+
+    
+    <!--A form (with fieldset). Is visual in the html as a form. Sends data to USBWebserver (aka: SQL).-->
+    {% for row in data %}
+    <br />
+    <form action="/edit_now" method="POST">
+        <fieldset>
+            <legend>Edit data: </legend>
+            Reserveringsdatum:
+            <br>
+            <input type="date" name="Reserveringsdatum" value="{{ row[3] }}">
+            <br>
+            Einddatum:
+            <br>
+            <input type="date" name="Einddatum" value="{{ row[4] }}">
+            <br>
+            Leerlingnummer:
+            <br>
+            <input type="text" name="PSnummer" value="{{ row[5] }}">
+            <br>
+            <br>
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+    {% endfor %}
+</body>
+
+
+
+</html>

@@ -1,0 +1,24 @@
+.bg-img {
+    /* Image location and min height of bg */
+    background-image: url("/static/serverruimtehd.jpg");
+    min-height: 380px;
+    /* Set the position correctly */
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hide0 tr > *:nth-child(1) {
+    display: none;
+}
+
+.hide1 tr > *:nth-child(2) {
+    display: none;
+}
+
+
+/* #dropdowncolor {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px;
+} /*
