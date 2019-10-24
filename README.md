@@ -7,6 +7,8 @@ The project is about making a small application using python to display the publ
 The application uses USBWebserver as a SQL server.
 as languages: Python, HTML, Flask and an itsy-bitsy Java.
 
+The "ServerRoomApplicationProject.zip" contains the whole project.
+
 x-- More info Follows --X
 
 
